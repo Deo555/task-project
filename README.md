@@ -1,2 +1,5 @@
-1.npm install u terminalu
-2.npm start (nakon task-project-api)
+Task-project za Kantun Devs
+
+Clone this repo
+Run npm install
+Run npm start (after starting task-project-api)
