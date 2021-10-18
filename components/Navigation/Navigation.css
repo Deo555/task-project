@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&family=Poppins&display=swap");
+
+nav {
+  position: sticky;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 6vh;
+  margin-bottom: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 1);
+  z-index:1000;
+}
+a {
+  text-decoration: none;
+  color: red;
+  transition: 0.4s;
+  cursor: pointer;
+  box-shadow: 5px 5px 20px 5px #000;
+}
+a:hover,
+a:active {
+  transform: scale(1.2);
+}
+
+.search-bar {
+  position: relative;
+  border: solid 1px rgba(255, 255, 255, 0.85);
+  width: 250px;
+}
