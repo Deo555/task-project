@@ -6,7 +6,7 @@ const MovieCard = ({ movie, setMovies, movies }) => {
   const { id, title, genre, rating, explicit } = movie || {};
   console.log(movie, "movie");
   console.log(id, "id");
-  console.log (explicit, ' explicit')
+  console.log (explicit, ' explicit mamu ti ')
 
   const deleteMovie = (id) => {
     const headers = { method: "DELETE", mode: "cors" };
