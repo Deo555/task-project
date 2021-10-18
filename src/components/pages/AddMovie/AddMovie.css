@@ -40,10 +40,6 @@ input {
   transition: all 0.3s;
 }
 
-input:valid {
-  border: 1px solid green;
-}
-
 input:invalid {
   border: 1px solid red;
 }
@@ -52,13 +48,6 @@ input.radio {
   width: 50%;
   cursor: pointer;
 }
-
-/* input.radio:checked:after {
-    color: solid #710000d6 !important;
-    background-color: solid #710000d6 !important;
-    border: 3px solid red ! important;
-    border-color: red ! important;
-  } */
 
 .yesno {
   display: flex;
@@ -77,9 +66,13 @@ input.radio {
 
 .button {
   cursor: pointer;
+  background-color: #04AA6D;
+  color:#FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-size:16px;
+  padding: 4px;
 }
 h1 {
-  position:absolute;
-  top:700px;
+  position: absolute;
+  top: 700px;
 }
-
