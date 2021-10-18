@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./AddMovie.css";
 
 const AddMovie = (props) => {
@@ -8,12 +7,12 @@ const AddMovie = (props) => {
   const [genre, setGenre] = useState();
   const [rating, setRating] = useState();
   const [explicit, setExplicit] = useState();
-  const [status, setStatus] = useState();
+  const [statusErr, setStatusErr] = useState();
 
   const handleSumbit = (e) => {
     e.preventDefault();
     const headers = {
-      "Content-Type": "application/json", //says its json sent
+      "Content-Type": "application/json",
     };
     const movie = { title, genre, rating, explicit };
     console.log(movie, "movieee");
@@ -31,13 +30,13 @@ const AddMovie = (props) => {
         return response.json();
       })
       .then((data) => {
-        setStatus({ status: false });
-        props.history.push("/")
+        props.history.push("/");
+        setStatusErr({ statusErr: false });
         console.log(data);
       })
       .catch((err) => {
         console.log(err);
-        setStatus({ status: true });
+        setStatusErr({ statusErr: true });
       });
   };
 
@@ -87,7 +86,6 @@ const AddMovie = (props) => {
               id="rating"
               type="number"
               placeholder="Rate movie 0-10"
-              step="0.1"
               min="0"
               max="10"
               required
@@ -119,7 +117,7 @@ const AddMovie = (props) => {
           <input className="button" type="submit" value="Add Movie" />
         </div>
       </form>
-      {/* {status? handleSumbit  : (<h1>Failed to add movie!</h1>)} */}
+      {statusErr ? <h1> An error occurred while adding the movie! </h1> : ""}
     </div>
   );
 };
