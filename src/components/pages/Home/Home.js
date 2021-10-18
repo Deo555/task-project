@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieCard from "../../MovieCard/MovieCard";
-import './Home.css'
+import "./Home.css";
 
 const Home = () => {
   const [movies, setMovies] = useState();
@@ -21,7 +21,7 @@ const Home = () => {
         console.log(err, "catch error");
       });
   }, []);
-  
+
   return (
     <div className="home-wrapper">
       {movies?.map((movie, index) => {
