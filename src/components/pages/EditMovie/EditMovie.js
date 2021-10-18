@@ -12,8 +12,8 @@ const EditMovie = (props) => {
   const [genre, setGenre] = useState();
   const [rating, setRating] = useState();
   const [explicit, setExplicit] = useState();
+  const [statusErr, setStatusErr] = useState();
   const [movie, setSingleMovie] = useState(null);
-  const [status, setStatus] = useState();
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/v1/movies`, {
@@ -48,14 +48,12 @@ const EditMovie = (props) => {
     })
       .then((response) => {
         console.log("res", response);
-
+        setStatusErr({ statusErr: false });
         props.history.push("/");
-        setStatus({ status: false });
       })
       .catch((err) => {
         console.log("er", err);
-
-        setStatus({ status: true });
+        setStatusErr({ statusErr: true });
       });
   };
 
@@ -80,7 +78,7 @@ const EditMovie = (props) => {
           <li>
             <label htmlFor="genre">
               Genre
-              <select 
+              <select
                 id="genre"
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
@@ -108,25 +106,27 @@ const EditMovie = (props) => {
             />
           </li>
           <li>
-            <label htmlFor="boolean">Explicit ?</label>
-            <input
-              value={explicit}
-              className="radio"
-              type="radio"
-              onChange={(e) => setExplicit(e.target.value)}
-              name="explicit"
-              value="true"
-              checked={explicit}
-            />
-            <input
-              value={explicit}
-              className="radio"
-              onChange={(e) => setExplicit(e.target.value)}
-              type="radio"
-              name="explicit"
-              value="false"
-              checked={explicit}
-            />
+            <div>
+              <label htmlFor="boolean">Explicit ?</label>
+              <input
+                value={explicit}
+                className="radio"
+                type="radio"
+                onChange={(e) => setExplicit(e.target.value)}
+                name="explicit"
+                value="true"
+                //checked={explicit === true}
+              />
+              <input
+                value={explicit}
+                className="radio"
+                onChange={(e) => setExplicit(e.target.value)}
+                type="radio"
+                name="explicit"
+                value="false"
+                // checked={explicit === false}
+              />
+            </div>
             <p className="yesno"> YES || NO </p>
           </li>
         </ul>
@@ -134,6 +134,7 @@ const EditMovie = (props) => {
           <input className="button" type="submit" value="Update Movie" />
         </div>
       </form>
+      {statusErr ? <h1> An error occurred while updating the movie! </h1> : ""}
     </div>
   );
 };
